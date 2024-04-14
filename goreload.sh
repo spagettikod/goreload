@@ -1,5 +1,11 @@
 #!/bin/bash
 
-while inotifywait --event modify -qq --recursive /app --include '.*\.go' ; do
-    /app/reload.sh
+PID=
+while true; do
+    $@ &
+    PID=$!
+    inotifywait --event modify -qq --recursive /app --include '.*\.go'
+    DATE=$(date "+%Y-%m-%d %H:%M:%S")
+    echo "$DATE Reloading"
+    pkill -TERM -P $PID
 done
