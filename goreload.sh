@@ -20,9 +20,9 @@ function now {
 
 printf "%s Starting goreload...\n" "$(now)"
 while true; do
-    printf "%s Running doer.sh..." "$(now)"
+    printf "%s Running doer.sh...\n" "$(now)"
     /doer.sh &
     inotifywait --event modify -qq --recursive /app --include '.*\.go'
-    printf "%s Stopping doer.sh..." "$(now)"
+    printf "%s Stopping doer.sh...\n" "$(now)"
     kill_tree $(pgrep -f doer.sh)
 done
