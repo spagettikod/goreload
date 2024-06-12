@@ -4,7 +4,7 @@ PID=
 DATE=$(date "+%Y-%m-%d %H:%M:%S")
 echo "$DATE Starting up..."
 while true; do
-    go run . &
+    /doer.sh &
     PID=$!
     DATE=$(date "+%Y-%m-%d %H:%M:%S")
     echo "$DATE Running..."
