@@ -19,7 +19,6 @@ function now {
 }
 
 printf "%s Starting goreload...\n" "$(now)"
-exit 1
 while true; do
     printf "%s Running doer.sh..." "$(now)"
     /doer.sh &
